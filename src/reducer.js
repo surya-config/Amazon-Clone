@@ -19,6 +19,7 @@ const reducer = (state, action) => {
         ...state,
         basket: [...state.basket, action.item],
       };
+
     case "REMOVE_FROM_BASKET":
       let newBasket = [...state.basket];
       const index = state.basket.findIndex((item) => item.id === action.id);
@@ -29,6 +30,10 @@ const reducer = (state, action) => {
       }
 
       return { ...state, basket: newBasket };
+
+    case "LOGOUT_USER":
+      return { ...state, basket: [] };
+
     default:
       return state;
   }
